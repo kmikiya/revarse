@@ -1,0 +1,19 @@
+<h2>フォローしているユーザー</h2>
+<table>
+  <thead>
+    <th>image</th>
+    <th>name</th>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg" %></td>
+    <td><%= user.name %></td>
+    <td>フォロー数：<%= user.followings.count %></td>
+    <td>フォロワー数：<%= user.followers.count %></td>
+    <td><%= link_to "show", user_path(user) %></td>
+    <% end %>
+  </tbody>
+</table>
+
+
+
