@@ -47,7 +47,7 @@
       <%= form_with(model: [@book, @book_comment], local:true) do |f| %>
       <%= f.label :comment %>
       <%= f.text_area :comment, class: 'form-control' %>
-      <%= f.submit %>
+      <%= f.submit "投稿" %>
       <% end %>
     </div>
   </div>
