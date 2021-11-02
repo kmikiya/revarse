@@ -31,15 +31,10 @@
           <td><%= link_to @book.title, book_path(@book) %></td>
           <td><%= @book.body %></td>
 
-          <% if @book.favorited_by?(current_user) %>
-            <td><%= link_to book_favorites_path(@book), method: :delete do %>
-              <i class="fas fa-heart"></i><%= @book.favorites.count %>
-            <% end %></td>
-          <% else %>
-              <td><%= link_to book_favorites_path(@book), method: :post do %>
-                <i class="far fa-heart"></i><%= @book.favorites.count %>
-              <% end %></td>
-          <% end %>
+           <td id="favorite_buttons_<%= @book.id %>">
+              <%= render 'books/favorites', book: @book %>
+           </td>
+
           <td>コメント数：<%= @book.book_comments.count %></td>
           <% if current_user.id == @user.id %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
